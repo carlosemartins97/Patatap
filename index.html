@@ -12,24 +12,66 @@
     <script type="text/paperscript" canvas="myCanvas">
 
         var keyData = {
-            a: {
+            1: {
                 color: "purple",
                 sound: new Howl({
                     src: ['sounds/bubbles.mp3']
                 })
             },
-            s: {
+            2: {
                 color: "green",
                 sound: new Howl({
                     src: ['sounds/clay.mp3']
                 })
             },
-            d: {
+            3: {
                 color: "red",
                 sound: new Howl({
                     src: ['sounds/confetti.mp3']
                 })
-            }
+            },
+            4: {
+                color: "blue",
+                sound: new Howl({
+                    src: ['sounds/corona.mp3']
+                })
+            },
+            5: {
+                color: "yellow",
+                sound: new Howl({
+                    src: ['sounds/pinwheel.mp3']
+                })
+            },
+            6: {
+                color: "white",
+                sound: new Howl({
+                    src: ['sounds/flash-1.mp3']
+                })
+            },
+            7: {
+                color: "grey",
+                sound: new Howl({
+                    src: ['sounds/flash-2.mp3']
+                })
+            },
+            8: {
+                color: "pink",
+                sound: new Howl({
+                    src: ['sounds/flash-3.mp3']
+                })
+            },
+            9: {
+                color: "orange",
+                sound: new Howl({
+                    src: ['sounds/glimmer.mp3']
+                })
+            },
+            0: {
+                color: "steelblue",
+                sound: new Howl({
+                    src: ['sounds/moon.mp3']
+                })
+            },
         }
 
 
@@ -54,6 +96,10 @@
             for(var i = 0; i < circles.length; i++){
                 circles[i].fillColor.hue+=1;
                 circles[i].scale(.9)
+                if(circles[i].area < 1){
+                    circles[i].remove();
+                    circles.splice(i, 1);
+                }
             }
         }
 
